@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use App\Domain\Notification\Notification;
+use App\Domain\Notification\NotificationException;
 use PHPUnit\Framework\TestCase;
 use App\Domain\Property\Entity\Property;
 use App\Domain\Property\Entity\PropertyType;
@@ -13,6 +14,7 @@ final class PropertyTest extends TestCase
 {
     public function testCanBeCreated(): void
     {
+
         $propertyId = Uuid::v4();
         $address = new Address(
             street: '123 Main St.',

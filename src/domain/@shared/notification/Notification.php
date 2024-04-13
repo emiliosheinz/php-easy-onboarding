@@ -24,10 +24,10 @@ class Notification
     return count($this->errors) > 0;
   }
 
-  function throwIfHasErrors(): void
+  function throwIfHasErrors(string $message): void
   {
     if ($this->hasErrors()) {
-      throw new NotificationException($this->errors);
+      throw new NotificationException(message: $message, errors: $this->errors);
     }
   }
 }

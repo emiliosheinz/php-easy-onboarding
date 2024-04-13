@@ -39,7 +39,7 @@ class Property extends Entity
   public function validate(): void
   {
     PropertyValidatorFactory::create()->validate($this);
-    $this->notification->throwIfHasErrors();
+    $this->notification->throwIfHasErrors('Invalid property entity state.');
   }
 
   public function getType(): PropertyType
