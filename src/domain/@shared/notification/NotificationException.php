@@ -8,7 +8,6 @@ class NotificationException extends \Exception
 {
   public function __construct(array $errors)
   {
-    print_r($errors);
     $message = join(', ', $errors);
     parent::__construct($message);
   }

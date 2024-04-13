@@ -7,11 +7,13 @@ use PHPUnit\Framework\TestCase;
 use App\Domain\Property\Entity\Property;
 use App\Domain\Property\Entity\PropertyType;
 use App\Domain\Property\ValueObject\Address;
+use App\Utils\Uuid;
 
 final class PropertyTest extends TestCase
 {
     public function testCanBeCreated(): void
     {
+        $propertyId = Uuid::v4();
         $address = new Address(
             street: '123 Main St.',
             city: 'Springfield',
@@ -20,7 +22,7 @@ final class PropertyTest extends TestCase
             country: 'US'
         );
         $property = new Property(
-            id: '1234',
+            id: $propertyId,
             type: PropertyType::Hotel,
             name: 'John Doe',
             email: 'john@gmail.com',
@@ -29,7 +31,7 @@ final class PropertyTest extends TestCase
             description: 'This is a test property',
             address: $address,
         );
-        $this->assertEquals('1234', $property->id);
+        $this->assertEquals($propertyId, $property->id);
         $this->assertEquals(PropertyType::Hotel, $property->getType());
         $this->assertEquals('John Doe', $property->getName());
         $this->assertEquals('john@gmail.com', $property->getEmail());
