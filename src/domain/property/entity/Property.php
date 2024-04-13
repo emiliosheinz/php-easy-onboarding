@@ -31,7 +31,6 @@ class Property extends Entity
     private string $phone,
     private string $description,
     private Address $address,
-    private array $images = [],
   ) {
     parent::__construct($id);
     $this->validate();
@@ -76,10 +75,5 @@ class Property extends Entity
   public function getAddress(): Address
   {
     return $this->address;
-  }
-
-  public function getImages(): array
-  {
-    return $this->images;
   }
 };
