@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Domain\Notification\Notification;
 use PHPUnit\Framework\TestCase;
 use App\Domain\Property\Entity\Property;
 use App\Domain\Property\Entity\PropertyType;
@@ -36,5 +37,6 @@ final class PropertyTest extends TestCase
         $this->assertEquals('https://example.com', $property->getWebsite());
         $this->assertEquals('This is a test property', $property->getDescription());
         $this->assertEquals($address, $property->getAddress());
+        $this->assertInstanceOf(Notification::class, $property->notification);
     }
 }

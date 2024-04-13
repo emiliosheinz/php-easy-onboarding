@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Domain\Property\Entity;
 
+use App\Domain\Entity\Entity;
+use App\Domain\Property\Factory\PropertyValidatorFactory;
 use App\Domain\Property\ValueObject\Address;
 
 enum PropertyType: string
@@ -18,10 +20,10 @@ enum PropertyType: string
   case OutdoorLodge = 'outdoorLodge';
 }
 
-class Property
+class Property extends Entity
 {
   public function __construct(
-    readonly string $id,
+    string $id,
     private PropertyType $type,
     private string $name,
     private string $email,
@@ -31,6 +33,14 @@ class Property
     private Address $address,
     private array $images = [],
   ) {
+    parent::__construct($id);
+    $this->validate();
+  }
+
+  public function validate(): void
+  {
+    PropertyValidatorFactory::create()->validate($this);
+    $this->notification->throwIfHasErrors();
   }
 
   public function getType(): PropertyType

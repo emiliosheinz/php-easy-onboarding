@@ -16,5 +16,7 @@
       "email": "emiliosheinz@gmail.com"
     }
   ],
-  "require": {}
+  "require": {
+    "symfony/validator": "^7.0"
+  }
 }
