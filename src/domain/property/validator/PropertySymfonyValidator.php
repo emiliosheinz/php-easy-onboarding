@@ -33,7 +33,7 @@ class PropertySymfonyValidator implements PropertyValidatorInterface
       )
       ->atPath('website')->validate(
         $entity->getWebsite(),
-        new Assert\Optional(new Assert\Url(message: 'The website must be a valid URL.'))
+        new Assert\Url(message: 'The website must be a valid URL.')
       )
       ->atPath('phone')->validate(
         $entity->getPhone(),
