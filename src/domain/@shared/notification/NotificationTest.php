@@ -39,4 +39,17 @@ final class NotificationTest extends TestCase
       $this->assertEquals([$addedError], $e->errors);
     }
   }
+
+  public function testDoesNotThrowNotificationExceptionIfHasNoErrors(): void
+  {
+    $notification = new Notification();
+    $notification->throwIfHasErrors('Exception message');
+    $this->assertTrue(true);
+  }
+
+  public function testNotificationErrorToStringYieldsContextAndMessage(): void
+  {
+    $error = new NotificationError(context: 'context', message: 'Error message');
+    $this->assertEquals('context: Error message', strval($error));
+  }
 }
