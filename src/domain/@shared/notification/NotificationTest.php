@@ -19,7 +19,7 @@ final class NotificationTest extends TestCase
   public function testAddError(): void
   {
     $notification = new Notification();
-    $addedError = new NotificationError('Error message', 'context');
+    $addedError = new NotificationError(context: 'context', message: 'Error message');
     $notification->addError($addedError);
     $this->assertCount(1, $notification->getErrors());
     $this->assertTrue($notification->hasErrors());
@@ -29,7 +29,7 @@ final class NotificationTest extends TestCase
   public function testThrowNotificationExceptionIfHasErrors(): void
   {
     $notification = new Notification();
-    $addedError = new NotificationError('Error message', 'context');
+    $addedError = new NotificationError(context: 'context', message: 'Error message');
     $notification->addError($addedError);
     try {
       $notification->throwIfHasErrors('Exception message');

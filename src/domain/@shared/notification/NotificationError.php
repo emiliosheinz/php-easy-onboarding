@@ -7,8 +7,8 @@ namespace App\Domain\Notification;
 class NotificationError
 {
   function __construct(
-    public string $message,
     public string $context,
+    public string $message,
   ) {
   }
 
