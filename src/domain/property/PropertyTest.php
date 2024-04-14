@@ -132,4 +132,21 @@ final class PropertyTest extends TestCase
             $this->assertEquals('The description must be at least 10 characters long.', $e->errors[0]->message);
         }
     }
+
+    public function testThrowsExceptionWithMultipleErrors(): void
+    {
+        try {
+            $propertyParams = $this->makePropertyParams();
+            $propertyParams['id'] = 'invalid-uuid';
+            $propertyParams['name'] = '';
+            $propertyParams['email'] = 'invalid-email';
+            $propertyParams['phone'] = 'invalid-phone';
+            $propertyParams['website'] = 'invalid-website';
+            $propertyParams['description'] = 'short';
+            new Property(...$propertyParams);
+        } catch (NotificationException $e) {
+            $this->assertCount(6, $e->errors);
+            $this->assertEquals('Invalid property entity state.', $e->getMessage());
+        }
+    }
 }

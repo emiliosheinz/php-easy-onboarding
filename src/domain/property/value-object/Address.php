@@ -4,7 +4,10 @@ declare(strict_types=1);
 
 namespace App\Domain\Property\ValueObject;
 
-class Address
+use App\Domain\Property\Factory\AddressValidatorFactory;
+use App\Domain\ValueObject\ValueObject;
+
+class Address extends ValueObject
 {
     public function __construct(
         private string $country,
@@ -14,6 +17,15 @@ class Address
         private string $zipCode,
         private ?string $complement = null,
     ) {
+        parent::__construct();
+        $this->validate();
+    }
+
+    public function validate(): void
+    {
+        $validator = AddressValidatorFactory::create();
+        $validator->validate($this);
+        $this->notification->throwIfHasErrors('Invalid address data.');
     }
 
     public function getCountry(): string
@@ -41,7 +53,7 @@ class Address
         return $this->zipCode;
     }
 
-    public function getComplement(): string
+    public function getComplement(): ?string
     {
         return $this->complement;
     }
