@@ -23,8 +23,7 @@ class Address extends ValueObject
 
     public function validate(): void
     {
-        $validator = AddressValidatorFactory::create();
-        $validator->validate($this);
+        AddressValidatorFactory::create()->validate($this);
         $this->notification->throwIfHasErrors('Invalid address data.');
     }
 

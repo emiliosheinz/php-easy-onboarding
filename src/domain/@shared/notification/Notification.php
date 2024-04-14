@@ -19,15 +19,15 @@ class Notification
     return $this->errors;
   }
 
-  function hasErrors(): bool
-  {
-    return count($this->errors) > 0;
-  }
-
   function throwIfHasErrors(string $message): void
   {
     if ($this->hasErrors()) {
       throw new NotificationException(message: $message, errors: $this->errors);
     }
+  }
+
+  function hasErrors(): bool
+  {
+    return count($this->errors) > 0;
   }
 }
