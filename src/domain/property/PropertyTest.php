@@ -6,7 +6,7 @@ use App\Domain\Notification\Notification;
 use App\Domain\Notification\NotificationException;
 use PHPUnit\Framework\TestCase;
 use App\Domain\Property\Entity\Property;
-use App\Domain\Property\Entity\PropertyType;
+use App\Domain\Property\Types\PropertyType;
 use App\Domain\Property\ValueObject\Address;
 use App\Utils\Uuid;
 

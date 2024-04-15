@@ -6,7 +6,7 @@ namespace App\Domain\Property\Validator;
 
 use App\Domain\Notification\NotificationError;
 use App\Domain\Property\Entity\Property;
-use App\Domain\Property\Entity\PropertyType;
+use App\Domain\Property\Types\PropertyType;
 use Symfony\Component\Validator\Validation;
 use Symfony\Component\Validator\Constraints as Assert;
 

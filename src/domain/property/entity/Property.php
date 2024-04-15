@@ -6,19 +6,8 @@ namespace App\Domain\Property\Entity;
 
 use App\Domain\Entity\Entity;
 use App\Domain\Property\Factory\PropertyValidatorFactory;
+use App\Domain\Property\Types\PropertyType;
 use App\Domain\Property\ValueObject\Address;
-
-enum PropertyType: string
-{
-  case Hotel = 'hotel';
-  case Hostel = 'hostel';
-  case Boutique = 'boutique';
-  case Motel = 'motel';
-  case VacationRental = 'vacationRental';
-  case BedAndBreakfast = 'bedAndBreakfast';
-  case Campground = 'campground';
-  case OutdoorLodge = 'outdoorLodge';
-}
 
 class Property extends Entity
 {
