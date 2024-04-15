@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+namespace App\Domain\Property;
+
 use App\Domain\Notification\Notification;
 use App\Domain\Notification\NotificationException;
 use PHPUnit\Framework\TestCase;
@@ -51,7 +53,6 @@ final class PropertyTest extends TestCase
     public function testThrowsExceptionWhenIdIsInvalid(): void
     {
         try {
-
             $propertyParams = $this->makePropertyParams();
             $propertyParams['id'] = 'invalid-uuid';
             new Property(...$propertyParams);

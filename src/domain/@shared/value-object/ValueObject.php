@@ -8,10 +8,10 @@ use App\Domain\Notification\Notification;
 
 class ValueObject
 {
-  public readonly Notification $notification;
+    public readonly Notification $notification;
 
-  public function __construct()
-  {
-    $this->notification = new Notification();
-  }
+    public function __construct()
+    {
+        $this->notification = new Notification();
+    }
 }

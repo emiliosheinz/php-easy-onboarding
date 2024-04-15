@@ -9,8 +9,8 @@ use App\Domain\Property\Validator\PropertyValidatorInterface;
 
 class PropertyValidatorFactory
 {
-  public static function create(): PropertyValidatorInterface
-  {
-    return new PropertySymfonyValidator();
-  }
+    public static function create(): PropertyValidatorInterface
+    {
+        return new PropertySymfonyValidator();
+    }
 }

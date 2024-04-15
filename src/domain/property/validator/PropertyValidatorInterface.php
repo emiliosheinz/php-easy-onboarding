@@ -8,5 +8,5 @@ use App\Domain\Property\Entity\Property;
 
 interface PropertyValidatorInterface
 {
-  public function validate(Property $entity): void;
+    public function validate(Property $entity): void;
 }

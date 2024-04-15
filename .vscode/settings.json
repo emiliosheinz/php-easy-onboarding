@@ -1,0 +1,10 @@
+{
+  "php.suggest.basic": false,
+  "phpsab.fixerEnable": true,
+  "phpsab.snifferEnable": true,
+  "phpsab.snifferMode": "onType",
+  "phpsab.snifferTypeDelay": 300,
+  "phpsab.standard": "./ruleset.xml",
+  "phpsab.executablePathCS": "./vendor/bin/phpcs",
+  "phpsab.executablePathCBF": "./vendor/bin/phpcbf"
+}

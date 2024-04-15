@@ -6,14 +6,14 @@ namespace App\Domain\Notification;
 
 class NotificationError
 {
-  function __construct(
-    public string $context,
-    public string $message,
-  ) {
-  }
+    public function __construct(
+        public string $context,
+        public string $message,
+    ) {
+    }
 
-  public function __toString(): string
-  {
-    return $this->context . ': ' . $this->message;
-  }
+    public function __toString(): string
+    {
+        return $this->context . ': ' . $this->message;
+    }
 }

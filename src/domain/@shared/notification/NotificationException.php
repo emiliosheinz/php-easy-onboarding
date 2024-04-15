@@ -6,8 +6,8 @@ namespace App\Domain\Notification;
 
 class NotificationException extends \Exception
 {
-  public function __construct(string $message, public readonly array $errors)
-  {
-    parent::__construct($message);
-  }
+    public function __construct(string $message, public readonly array $errors)
+    {
+        parent::__construct($message);
+    }
 }

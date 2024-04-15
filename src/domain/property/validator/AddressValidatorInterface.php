@@ -8,5 +8,5 @@ use App\Domain\Property\ValueObject\Address;
 
 interface AddressValidatorInterface
 {
-  public function validate(Address  $entity): void;
+    public function validate(Address $entity): void;
 }

@@ -9,8 +9,8 @@ use App\Domain\Property\Validator\AddressValidatorInterface;
 
 class AddressValidatorFactory
 {
-  public static function create(): AddressValidatorInterface
-  {
-    return new AddressSymfonyValidator();
-  }
+    public static function create(): AddressValidatorInterface
+    {
+        return new AddressSymfonyValidator();
+    }
 }
