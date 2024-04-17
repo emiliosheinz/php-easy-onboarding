@@ -32,7 +32,10 @@ class AddressSymfonyValidator implements AddressValidatorInterface
             )
             ->atPath('zipCode')->validate(
                 $entity->getZipCode(),
-                new Assert\Regex(pattern: '/^\d*$/', message: 'The zip code must be a valid zip code.')
+                [
+                    new Assert\NotBlank(message: 'The zip code cannot be blank.'),
+                    new Assert\Regex(pattern: '/^\d*$/', message: 'The zip code must be a valid zip code.'),
+                ]
             )
             ->atPath('complement')->validate(
                 $entity->getComplement(),

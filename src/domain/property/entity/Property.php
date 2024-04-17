@@ -19,6 +19,8 @@ class Property extends Entity
         private string $website,
         private string $phone,
         private string $description,
+        // TODO: add images property and write unit tests for it
+        // private array $images,
         private Address $address,
     ) {
         parent::__construct($id);

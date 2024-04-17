@@ -92,6 +92,19 @@ final class AddressTest extends TestCase
     {
         try {
             $addressParams = $this->makeAddressParams();
+            $addressParams['zipCode'] = 'abc';
+            new Address(...$addressParams);
+        } catch (NotificationException $e) {
+            $this->assertEquals('Invalid address data.', $e->getMessage());
+            $this->assertEquals('zipCode', $e->errors[0]->context);
+            $this->assertEquals('The zip code must be a valid zip code.', $e->errors[0]->message);
+        }
+    }
+
+    public function testCannotBeCreatedWithABlankZipCode(): void
+    {
+        try {
+            $addressParams = $this->makeAddressParams();
             $addressParams['zipCode'] = '';
             new Address(...$addressParams);
         } catch (NotificationException $e) {
