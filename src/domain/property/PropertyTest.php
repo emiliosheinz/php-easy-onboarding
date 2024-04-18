@@ -10,6 +10,7 @@ use PHPUnit\Framework\TestCase;
 use App\Domain\Property\Entity\Property;
 use App\Domain\Property\Types\PropertyType;
 use App\Domain\Property\ValueObject\Address;
+use App\Domain\Property\ValueObject\Image;
 use App\Utils\Uuid;
 
 final class PropertyTest extends TestCase
@@ -31,6 +32,11 @@ final class PropertyTest extends TestCase
                 zipCode: '62701',
                 country: 'US'
             ),
+            'images' => [
+                new Image(url: 'https://example.com/image1.jpg', isDefault: true),
+                new Image(url: 'https://example.com/image2.jpg', isDefault: false),
+                new Image(url: 'https://example.com/image3.jpg', isDefault: false),
+            ]
         ];
     }
 
@@ -48,6 +54,7 @@ final class PropertyTest extends TestCase
         $this->assertEquals($propertyParams['description'], $property->getDescription());
         $this->assertEquals($propertyParams['address'], $property->getAddress());
         $this->assertInstanceOf(Notification::class, $property->notification);
+        $this->assertEquals($propertyParams['images'], $property->getImages());
     }
 
     public function testThrowsExceptionWhenIdIsInvalid(): void
