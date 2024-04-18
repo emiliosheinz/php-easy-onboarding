@@ -10,8 +10,8 @@ use App\Domain\ValueObject\ValueObject;
 class Image extends ValueObject
 {
     public function __construct(
-        private string $url,
-        private bool $isDefault = false,
+        public string $url,
+        public bool $isDefault = false,
     ) {
         parent::__construct();
         $this->validate();
@@ -21,15 +21,5 @@ class Image extends ValueObject
     {
         ImageValidatorFactory::create()->validate($this);
         $this->notification->throwIfHasErrors('Invalid image data.');
-    }
-
-    public function getUrl(): string
-    {
-        return $this->url;
-    }
-
-    public function isDefault(): bool
-    {
-        return $this->isDefault;
     }
 }

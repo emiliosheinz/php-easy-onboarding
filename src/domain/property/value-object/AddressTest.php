@@ -27,12 +27,12 @@ final class AddressTest extends TestCase
         $addressParams = $this->makeAddressParams();
         $address = new Address(...$addressParams);
         $this->assertInstanceOf(Address::class, $address);
-        $this->assertEquals($addressParams['country'], $address->getCountry());
-        $this->assertEquals($addressParams['street'], $address->getStreet());
-        $this->assertEquals($addressParams['city'], $address->getCity());
-        $this->assertEquals($addressParams['state'], $address->getState());
-        $this->assertEquals($addressParams['zipCode'], $address->getZipCode());
-        $this->assertEquals($addressParams['complement'], $address->getComplement());
+        $this->assertEquals($addressParams['country'], $address->country);
+        $this->assertEquals($addressParams['street'], $address->street);
+        $this->assertEquals($addressParams['city'], $address->city);
+        $this->assertEquals($addressParams['state'], $address->state);
+        $this->assertEquals($addressParams['zipCode'], $address->zipCode);
+        $this->assertEquals($addressParams['complement'], $address->complement);
         $this->assertInstanceOf(Notification::class, $address->notification);
     }
 

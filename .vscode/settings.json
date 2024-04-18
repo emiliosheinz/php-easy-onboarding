@@ -6,5 +6,6 @@
   "phpsab.snifferTypeDelay": 300,
   "phpsab.standard": "./ruleset.xml",
   "phpsab.executablePathCS": "./vendor/bin/phpcs",
-  "phpsab.executablePathCBF": "./vendor/bin/phpcbf"
+  "phpsab.executablePathCBF": "./vendor/bin/phpcbf",
+  "cSpell.words": ["Usecase"]
 }

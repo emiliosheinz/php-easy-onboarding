@@ -44,6 +44,7 @@ final class PropertyTest extends TestCase
     {
         $propertyParams = $this->makePropertyParams();
         $property = new Property(...$propertyParams);
+
         $this->assertInstanceOf(Property::class, $property);
         $this->assertEquals($propertyParams['id'], $property->id);
         $this->assertEquals($propertyParams['type'], $property->getType());

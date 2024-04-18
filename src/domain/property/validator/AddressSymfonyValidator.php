@@ -15,30 +15,30 @@ class AddressSymfonyValidator implements AddressValidatorInterface
     {
         $violations = Validation::createValidator()->startContext()
             ->atPath('country')->validate(
-                $entity->getCountry(),
+                $entity->country,
                 new Assert\Country(message: 'The country must be a valid country code.')
             )
             ->atPath('street')->validate(
-                $entity->getStreet(),
+                $entity->street,
                 new Assert\NotBlank(message: 'The street cannot be blank.')
             )
             ->atPath('city')->validate(
-                $entity->getCity(),
+                $entity->city,
                 new Assert\NotBlank(message: 'The city cannot be blank.')
             )
             ->atPath('state')->validate(
-                $entity->getState(),
+                $entity->state,
                 new Assert\NotBlank(message: 'The state cannot be blank.')
             )
             ->atPath('zipCode')->validate(
-                $entity->getZipCode(),
+                $entity->zipCode,
                 [
                     new Assert\NotBlank(message: 'The zip code cannot be blank.'),
                     new Assert\Regex(pattern: '/^\d*$/', message: 'The zip code must be a valid zip code.'),
                 ]
             )
             ->atPath('complement')->validate(
-                $entity->getComplement(),
+                $entity->complement,
                 new Assert\NotBlank(
                     allowNull: true,
                     message: 'The complement cannot be blank.'

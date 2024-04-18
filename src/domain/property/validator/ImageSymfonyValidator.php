@@ -15,11 +15,11 @@ class ImageSymfonyValidator implements ImageValidatorInterface
     {
         $violations = Validation::createValidator()->startContext()
           ->atPath('url')->validate(
-              $entity->getUrl(),
+              $entity->url,
               new Assert\Url(message: 'The image url must be a valid url.')
           )
           ->atPath('isDefault')->validate(
-              $entity->isDefault(),
+              $entity->isDefault,
               new Assert\Type(type: 'bool', message: 'The isDefault must be a boolean.')
           )
           ->getViolations();
