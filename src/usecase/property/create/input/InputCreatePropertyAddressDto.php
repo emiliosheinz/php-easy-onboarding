@@ -6,9 +6,10 @@ namespace App\Usecase\Property\Create;
 
 class InputCreatePropertyAddressDto
 {
-    public string $city;
-    public int $number;
-    public string $state;
+    public string $country;
     public string $street;
-    public string $zip;
+    public string $city;
+    public string $state;
+    public string $zipCode;
+    public ?string $complement;
 }
