@@ -34,8 +34,8 @@ final class CreatePropertyUsecaseTest extends TestCase
     public function testCreateProperty()
     {
         $mockRepository = $this->createMock(PropertyRepositoryInterface::class);
+        $mockRepository->expects($this->once())->method('create');
         $createPropertyUsecase = new CreatePropertyUsecase(repository: $mockRepository);
         $createPropertyUsecase->execute($this->makeCreatePropertyUsecaseParams());
-        $mockRepository->expects($this->once())->method('create');
     }
 }
