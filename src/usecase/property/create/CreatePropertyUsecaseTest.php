@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Usecase\Property\Create;
 
+use App\Domain\Notification\NotificationException;
 use App\Domain\Property\Repository\PropertyRepositoryInterface;
-use PHPUnit\Framework\MockObject\MockBuilder;
 use PHPUnit\Framework\TestCase;
 
 final class CreatePropertyUsecaseTest extends TestCase
@@ -37,5 +37,17 @@ final class CreatePropertyUsecaseTest extends TestCase
         $mockRepository->expects($this->once())->method('create');
         $createPropertyUsecase = new CreatePropertyUsecase(repository: $mockRepository);
         $createPropertyUsecase->execute($this->makeCreatePropertyUsecaseParams());
+    }
+
+    public function testShouldNotCreatePropertyWhenDataIsInvalid()
+    {
+        $mockRepository = $this->createMock(PropertyRepositoryInterface::class);
+        $mockRepository->expects($this->never())->method('create');
+        $createPropertyUsecase = new CreatePropertyUsecase(repository: $mockRepository);
+        $params = $this->makeCreatePropertyUsecaseParams();
+        $params->name = '';
+        $params->email = 'invalid-email';
+        $this->expectException(NotificationException::class);
+        $createPropertyUsecase->execute($params);
     }
 }
