@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Infra\Property\Postgres;
+namespace App\Infra\Property\Repository;
 
 use Doctrine\ORM\Mapping as ORM;
 
