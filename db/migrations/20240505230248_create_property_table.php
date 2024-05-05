@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+namespace Db\Migrations;
+
 use Phinx\Migration\AbstractMigration;
 
 final class CreatePropertyTable extends AbstractMigration
@@ -19,6 +21,5 @@ final class CreatePropertyTable extends AbstractMigration
      */
     public function change(): void
     {
-
     }
 }
