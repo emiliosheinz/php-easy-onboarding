@@ -5,15 +5,29 @@ services:
     image: postgres:16.2-alpine
     restart: always
     environment:
-      - PORGRES_USER=${DB_USER}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_DB=${DB_NAME}
       - POSTGRES_PASSWORD=${DB_PASSWORD}
-    ports:
-      - '5432:5432'
     volumes:
       - ./data/postgres:/var/lib/postgresql/data
 
+  pgadming:
+    image: dpage/pgadmin4:8.6
+    restart: always
+    depends_on:
+      - db
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - 8080:80
+    volumes:
+      - ./data/pgadmin:/var/lib/pgadmin
+
   app:
-    image: php:8.2-apache
+    build:
+      context: .
+      dockerfile: Dockerfile
     volumes:
       - ./:/var/www/html
 
