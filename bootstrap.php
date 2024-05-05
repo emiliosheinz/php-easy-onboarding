@@ -11,6 +11,7 @@ $config = ORMSetup::createAttributeMetadataConfiguration(
     isDevMode: true,
 );
 
+// TODO load from .env file
 $connection = DriverManager::getConnection([
   'port' => 5432,
   'host' => 'db',

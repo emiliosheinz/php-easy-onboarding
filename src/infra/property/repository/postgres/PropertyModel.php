@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity]
 #[ORM\Table(name: 'properties')]
-class Product
+class Property
 {
     #[ORM\Id]
     #[ORM\Column(type: 'guid')]
